@@ -1,5 +1,13 @@
+@use '../src/styles/place-card.scss';
+
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  height: 100vh;
+  background-color:antiquewhite;
 }
 
 .App-logo {
