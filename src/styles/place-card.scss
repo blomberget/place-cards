@@ -1,13 +1,16 @@
-$h: 190px;
-$w: 340px;
+$card-h: 99mm;
+$h: 49.5mm;
+$w: 105mm;
 $font: 'Snell Roundhand', sans-serif;
 $forest: #384630;
 
 .place-card {
   @extend .flex-column;
-  height: $h * 2.1;
+  height: $card-h;
   width: $w;
   background-color: white;
+  page-break-inside: avoid;
+  page-break-after: auto;
 
   .backside {
     height: $h;
@@ -28,8 +31,9 @@ $forest: #384630;
     margin-top: 5rem;
     font-family: $font;
     color: $forest;
-    font-size: 3rem;
     overflow: hidden;
+    font-size: 2.3rem;
+    padding: 0 1rem;
   }
 }
 

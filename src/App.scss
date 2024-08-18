@@ -1,7 +1,6 @@
 @import 'styles/flex.scss';
 @import 'styles/place-card.scss';
 
-/* /System/Library/Fonts/Supplemental/SnellRoundhand.ttc */
 @font-face {
   font-family: 'Snell Roundhand';
   src: url('~/System/Library/Fonts/Supplemental/SnellRoundhand.ttc ') format('truetype');
@@ -9,25 +8,16 @@
   font-style: normal;
 }
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+$a4-width: 210mm;
+$a4-height: 297mm;
 
 .App {
   @extend .flex-column, .flex-center;
   text-align: center;
 
   gap: 1rem;
+  padding: 1rem 0;
 
-  min-height: 100vh;
   background-color: antiquewhite;
 }
 
@@ -36,9 +26,28 @@
 }
 
 .place-cards {
-  @extend .flex-center, .flex-row;
+  @extend .flex-center, .flex-column;
+  display: flex;
+  justify-content: center;
+  page-break-inside: avoid;
   gap: 1rem;
-  flex-wrap: wrap;
+
+  &-a4 {
+    @extend .flex-center, .flex-row;
+    height: $a4-height;
+    width: $a4-width;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 0;
+    page-break-inside: avoid;
+    page-break-after: always; 
+
+    &:nth-child(odd) {
+      background-color: #f0f0f0;
+    }
+  }
 }
 
 .App-logo {
